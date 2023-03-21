@@ -1,0 +1,14 @@
+on:
+  workflow_dispatch:
+    inputs:
+      label:
+        description: 'put a random labels to test the webhook event listener'
+        type: string
+        required: true
+
+jobs:
+  log-the-inputs:
+    runs-on: ${{ inputs.label }}
+    steps:
+      - run: |
+          echo "Asking for run with ${{ inputs.label }}"
